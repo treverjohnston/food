@@ -1,0 +1,10 @@
+c:\source\mine\foody\server\bin\Debug\netcoreapp2.0\server.deps.json
+c:\source\mine\foody\server\bin\Debug\netcoreapp2.0\server.runtimeconfig.json
+c:\source\mine\foody\server\bin\Debug\netcoreapp2.0\server.runtimeconfig.dev.json
+c:\source\mine\foody\server\bin\Debug\netcoreapp2.0\server.dll
+c:\source\mine\foody\server\bin\Debug\netcoreapp2.0\server.pdb
+c:\source\mine\foody\server\obj\Debug\netcoreapp2.0\server.csproj.CoreCompileInputs.cache
+c:\source\mine\foody\server\obj\Debug\netcoreapp2.0\server.AssemblyInfoInputs.cache
+c:\source\mine\foody\server\obj\Debug\netcoreapp2.0\server.AssemblyInfo.cs
+c:\source\mine\foody\server\obj\Debug\netcoreapp2.0\server.dll
+c:\source\mine\foody\server\obj\Debug\netcoreapp2.0\server.pdb
