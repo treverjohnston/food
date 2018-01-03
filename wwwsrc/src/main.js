@@ -14,10 +14,16 @@ import Vue from 'vue'
 import Quasar from 'quasar'
 import router from './router'
 import store from './store'
+import Vue2Leaflet from 'vue2-leaflet';
 
 
 Vue.config.productionTip = false
 Vue.use(Quasar) // Install Quasar Framework
+
+Vue.component('v-map', Vue2Leaflet.Map);
+Vue.component('v-tilelayer', Vue2Leaflet.TileLayer);
+Vue.component('v-marker', Vue2Leaflet.Marker);
+
 
 if (__THEME === 'mat') {
   require('quasar-extras/roboto-font')

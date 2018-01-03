@@ -1,7 +1,4 @@
 .DS_Store
-.thumbs.db
 node_modules/
-dist/
-npm-debug.log*
-cordova/platforms
-cordova/plugins
+npm-debug.log
+test/unit/coverage

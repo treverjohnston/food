@@ -1,8 +1,10 @@
 <template>
     <q-layout>
-        <div id="mapview" v-model="map">
-            <!-- map loads here -->
-        </div>
+        <q-btn @click="callback" color="black">Test</q-btn>
+        <v-map ref="map" id="mapview" :zoom="zoom" :center="center" class="map">
+            <v-tilelayer :url="url" :attribution="attribution"></v-tilelayer>
+            <v-marker @l-click="test" :lat-lng="marker"></v-marker>
+        </v-map>
         <!-- <button type="button" @click="initMap">Load Map</button> -->
 
         <!-- <div id="iw-container">
@@ -21,96 +23,82 @@
 
 <script>
     import $ from "jquery"
+    // import { vmap, vtilelayer, vmarker } from 'Vue2-Leaflet'
     import {
-        QLayout
+        QLayout,
+        QBtn
     } from 'quasar'
+
     export default {
         data() {
             return {
                 map: {},
                 infoWindow: 'hello',
                 canvasHeight: '',
-                service: ''
+                service: '',
+                zoom: 13,
+                center: [47.413220, -1.219482],
+                url: 'http://{s}.tile.osm.org/{z}/{x}/{y}.png',
+                attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors',
+                marker: L.latLng(47.413220, -1.219482)
             }
         },
         components: {
-            QLayout
+            QLayout,
+            QBtn
+        },
+        computed: {
+            places() {
+                return this.$store.state.places
+            }
         },
         mounted() {
-            this.initMap()
+            // this.initMap()
         },
         methods: {
-            initMap() {
-                var _this = this
-                this.map = new google.maps.Map(document.getElementById('mapview'), {
-                    center: { lat: -34.397, lng: 150.644 },
-                    zoom: 12
-                });
-                this.infoWindow = new google.maps.InfoWindow({ map: this.map });
-
-
-                // Try HTML5 geolocation.
-                if (navigator.geolocation) {
-                    navigator.geolocation.getCurrentPosition((position) => {
-                        var pos = {
-                            lat: position.coords.latitude,
-                            lng: position.coords.longitude
-                        };
-                        this.$store.commit('setUserLocation', pos)
-
-                        this.infoWindow.setPosition(pos);
-                        this.infoWindow.setContent('You are here');
-                        this.infoWindow.open(this.map);
-                        this.map.setCenter(pos);
-
-
-                        this.service = new google.maps.places.PlacesService(this.map)
-                        var request = {
-                            location: pos,
-                            radius: 50000,
-                            // type: ['restaurant'],
-                            keyword: "food"
-                        }
-                        this.service.nearbySearch(request, this.callback)
-                    }, () => {
-                        handleLocationError(true, this.infoWindow, this.map.getCenter());
-                    });
-                } else {
-                    // Browser doesn't support Geolocation
-                    handleLocationError(false, this.infoWindow, this.map.getCenter());
-                }
-                this.canvasHeight = window.innerHeight
-                document.getElementById('mapview').style.height = this.canvasHeight - 320 + 'px'
+            test(){
+                console.log('test')
             },
 
             callback(results, status) {
-                if (status === google.maps.places.PlacesServiceStatus.OK) {
-                    for (var i = 0; i < results.length; i++) {
-                        this.createMarker(results[i])
-                    }
-                }
+                console.log('calling back')
+                // if (status === google.maps.places.PlacesServiceStatus.OK) {
+                console.log('results', results)
+                //     for (var i = 0; i < results.length; i++) {
+                //         this.createMarker(results[i])
+                //     }
+                // }
+                // if (this.places[0]) {
+
+                //     for (var i = 0; i < this.places.length; i++) {
+                //         this.createMarker(this.places[i])
+                //     }
+                // }
             },
 
             createMarker(place) {
                 var _this = this
-                var encodedVic = encodeURI(place.vicinity)
+                // var encodedVic = encodeURI(place.location.address1 + place.location.address2 + place.location.address3 + ',' + place.location.city)
                 var template = `        
                     <div id="iw-container">
                         <div class="iw-title">
                             <h3>${place.name}</h3>
                         </div>
                         <div class="iw-content">
-                            <img src="${place.photos[0].getUrl({ maxWidth: 100, maxHeight: 100 })}" alt="Photo Time!" height="auto" width="100">
+                            <img src="${place.image_url}" alt="Photo Time!" height="auto" width="100">
                             <h4>Rating: ${place.rating}</h4>
                         </div>
                         <div class="iw-bottom-gradient"></div>
-                        <a href="https://google.com/maps/dir/?api=1&destination=${encodedVic}&destination_place_id=${place.place_id}">View in Maps</a>
                     </div>
                 `
-                var placeLoc = place.geometry.location;
+                var obj = {
+                    lat: place.coordinates.lat,
+                    lng: place.coordinates.lng
+                }
+                var placeLoc = obj;
                 var marker = new google.maps.Marker({
                     map: this.map,
-                    position: place.geometry.location
+                    position: obj
                 })
 
                 google.maps.event.addListener(marker, 'click', () => {
@@ -119,6 +107,7 @@
                     _this.infoWindow.setContent(template)
                     _this.infoWindow.open(_this.map, marker)
                 })
+                console.log('marker created')
 
 
             },
@@ -138,13 +127,11 @@
         height: 100vh;
     }
 
-    html,
-    body {
-        height: 100%;
+    .map{
+        height: 100vh;
+        width: 100vw;
         margin: 0;
-        padding: 0;
     }
-
 
     /* .gm-style-iw {
         width: 350px !important;

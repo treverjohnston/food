@@ -12588,11 +12588,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\source\\mine\\foody\\server\\server.csproj",
+      "projectUniqueName": "c:\\source\\mine\\foody\\server\\server.csproj",
       "projectName": "server",
-      "projectPath": "C:\\source\\mine\\foody\\server\\server.csproj",
+      "projectPath": "c:\\source\\mine\\foody\\server\\server.csproj",
       "packagesPath": "C:\\Users\\Trever\\.nuget\\packages\\",
-      "outputPath": "C:\\source\\mine\\foody\\server\\obj\\",
+      "outputPath": "c:\\source\\mine\\foody\\server\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

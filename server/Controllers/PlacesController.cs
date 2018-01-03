@@ -29,6 +29,7 @@ namespace server.Controllers
             var client = new RestClient("https://api.yelp.com/v3/businesses/search?term=food&latitude=37.786882&longitude=-122.399972");
             var request = new RestRequest(Method.GET);
             request.AddHeader("authorization", "Bearer mjcB8YxIQoX7cMBCvQ1_nagDAqIhXR0pBuuL_J2CYF5YD3j5E3BH8FEu_tGO9n996_Rcgb7Mz1jBY45NjdRGXWPQx9PFBn6Pr295djBnZsfpFF3seaZCq5TMIDxJWnYx");
+            request.AddHeader("cache-control", "no-cache");
             IRestResponse response = client.Execute(request);
 
             System.Console.WriteLine("response", response.Content.ToString());

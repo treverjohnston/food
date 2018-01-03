@@ -34,10 +34,8 @@ namespace server
                     .AllowCredentials();
                 });
             });
-            services.AddSession();
-            // ConfigureAuthentication(services);
-            // services.AddEntityFrameworkSqlServer().AddDbContext<LolContext>();
-            services.AddResponseCaching();
+            // services.AddSession();
+            // services.AddResponseCaching();
             services.AddMvc();
         }
 
@@ -49,12 +47,12 @@ namespace server
                 app.UseDeveloperExceptionPage();
             }
             app.UseCors("CorsPolicy");
-            app.UseSession();
-            app.UseAuthentication();
+            // app.UseSession();
+            // app.UseAuthentication();
 
-            app.UseDefaultFiles();
-            app.UseStaticFiles();
-            app.UseResponseCaching();
+            // app.UseDefaultFiles();
+            // app.UseStaticFiles();
+            // app.UseResponseCaching();
             app.UseMvc();
         }
     }
