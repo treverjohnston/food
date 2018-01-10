@@ -2,9 +2,9 @@
   "name": "food",
   "version": "1.0.0",
   "description": "",
-  "main": "back/index.js",
+  "main": "server/index.js",
   "scripts": {
-    "start": "node back/index.js"
+    "start": "node server/index.js"
   },
   "dependencies": {},
   "engines": {
