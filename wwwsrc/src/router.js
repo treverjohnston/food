@@ -31,6 +31,10 @@ export default new VueRouter({
         {
           path: 'map',
           component: load('Map')
+        },
+        {
+          path: 'full',
+          component: load('Full')
         }
       ]
     },

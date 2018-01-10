@@ -17,7 +17,9 @@ Vue.use(vuex)
 var store = new vuex.Store({
     state: {
         userLocation: {},
-        places: {}
+        places: {},
+        chosen: {},
+        center: ''
     },
     mutations: {
         handleError(state, err) {
@@ -28,25 +30,38 @@ var store = new vuex.Store({
         },
         setPlaces(state, obj){
             state.places = obj
+        },
+        setChosen(state, obj){
+            obj.coordinates.lat = obj.coordinates.latitude,
+            obj.coordinates.lng = obj.coordinates.longitude
+            state.chosen = obj
         }
         
     },
     actions: {
         getPlaces({ commit, dispatch }, pos) {
-            console.log('pos', pos)
+            // console.log('pos', pos)
             api.post('places', pos)
                 .then(res => {
-                    console.log("place res", res)
+                    // console.log("place res", res)
                     commit('setPlaces', res.data.data)
                     // debugger
-                    // var rand = Math.floor((Math.random() * res.data.images.length) + 1);
+                    // var rand = Math.floor((Math.random() * res.data.data.length) + 1);
+                    var rand = Math.floor((Math.random() * res.data.data.length));
+                    commit('setChosen', res.data.data[rand])
+
                     // res.data.images[rand].url = `//images.weserv.nl/?url=${res.data.images[rand].url}`
-                    // commit('setPhoto', res.data.images[rand])
                 })
                 .catch(err => {
                     commit('handleError', err)
                 })
         },
+        getMap({commit, dispatch}){
+            router.push('map')
+        },
+        getFull({commit, dispatch}){
+            router.push('full')
+        }
     }
 })
 

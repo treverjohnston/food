@@ -1,0 +1,24 @@
+{
+  "name": "food",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server/index.js",
+  "scripts": {
+    "start": "node server/index.js"
+  },
+  "dependencies": {},
+  "engines": {
+    "node": "^8",
+    "npm": "^5"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/treverjohnston/foody.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/treverjohnston/foody/issues"
+  },
+  "homepage": "https://github.com/treverjohnston/foody#readme"
+}
