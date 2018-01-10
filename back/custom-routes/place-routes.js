@@ -12,7 +12,7 @@ module.exports = {
         method(req, res, next) {
             let action = 'Find Places'
             client.search({
-                term: 'Coffee',
+                term: 'Food',
                 latitude: req.body.lat,
                 longitude: req.body.lng
             }).then(response => {
