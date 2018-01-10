@@ -13,12 +13,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/treverjohnston/foody.git"
+    "url": "git+https://github.com/treverjohnston/food.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/treverjohnston/foody/issues"
+    "url": "https://github.com/treverjohnston/food/issues"
   },
-  "homepage": "https://github.com/treverjohnston/foody#readme"
+  "homepage": "https://github.com/treverjohnston/food#readme"
 }
