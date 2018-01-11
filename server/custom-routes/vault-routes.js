@@ -11,7 +11,7 @@ module.exports = {
       let action = 'Find Vault'
       Vault.findById(req.params.vaultId)
         .then(vault => {
-          console.log(vault)
+          // console.log(vault)
           res.send(handleResponse(action, vault))
         }).catch(error => {
           return next(handleResponse(action, null, error))

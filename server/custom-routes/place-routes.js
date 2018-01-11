@@ -16,7 +16,7 @@ module.exports = {
                 latitude: req.body.lat,
                 longitude: req.body.lng
             }).then(response => {
-                console.log(response.jsonBody.businesses[0].name);
+                // console.log(response.jsonBody.businesses[0].name);
                 res.send(handleResponse(action, response.jsonBody.businesses))
                 // return res(handleResponse(action, response))
                 
