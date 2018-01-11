@@ -1,37 +1,24 @@
 {
   "name": "food",
   "version": "1.0.0",
-  "description": "food",
+  "description": "",
   "main": "server/index.js",
   "scripts": {
     "start": "node server/index.js"
   },
-  "dependencies": {
-    "babel-cli": "^6.22.2",
-    "babel-preset-es2015": "^6.22.0",
-    "bcryptjs": "^2.4.3",
-    "body-parser": "^1.16.0",
-    "connect-mongo": "^1.3.2",
-    "connect-mongodb-session": "^1.3.0",
-    "cors": "^2.8.1",
-    "express": "^4.14.1",
-    "express-session": "^1.15.0",
-    "mongoose": "^4.8.1",
-    "socket.io": "^1.7.3",
-    "yelp-fusion": "^2.0.3"
-  },
+  "dependencies": {},
   "engines": {
     "node": "^9",
     "npm": "^5"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/treverjohnston/food.git"
+    "url": "git+https://github.com/treverjohnston/foody.git"
   },
-  "author": "Trever Johnston",
+  "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/treverjohnston/food/issues"
+    "url": "https://github.com/treverjohnston/foody/issues"
   },
-  "homepage": "https://github.com/treverjohnston/food#readme"
+  "homepage": "https://github.com/treverjohnston/foody#readme"
 }
