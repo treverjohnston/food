@@ -1,5 +1,5 @@
 {
-  "name": "foody",
+  "name": "food",
   "version": "1.0.0",
   "description": "food",
   "main": "server/index.js",
