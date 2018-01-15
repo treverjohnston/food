@@ -1,1 +1,1 @@
-# Food
+# Random Restaurant Picker App
